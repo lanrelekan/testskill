@@ -1,0 +1,345 @@
+        /*
+        ===================================================================
+        SECTION 1: CSS RESET & BASE STYLES
+        ===================================================================
+        */
+        :root {
+            --color-bg: #0f172a;       /* Slate 900 */
+            --color-surface: #1e293b;  /* Slate 800 */
+            --color-primary: #06b6d4;  /* Cyan 500 */
+            --color-secondary: #6366f1; /* Indigo 500 */
+            --color-text-light: #f1f5f9; /* Slate 100 */
+            --color-text-med: #94a3b8; /* Slate 400 */
+            --color-pill-bg: #334155; /* Slate 700 */
+            --color-gradient-start: #06b6d4;
+            --color-gradient-end: #6366f1;
+            scroll-behavior: smooth;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Custom scrollbar for aesthetics */
+        body::-webkit-scrollbar { width: 8px; }
+        body::-webkit-scrollbar-track { background: var(--color-bg); }
+        body::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+        body::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Utility classes */
+        .text-gradient {
+            background-image: linear-gradient(to right, var(--color-gradient-start), var(--color-gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /*
+        ===================================================================
+        SECTION 2: HEADER & NAVIGATION STYLES
+        ===================================================================
+        */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(15, 23, 42, 0.95); /* Semi-transparent background */
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: var(--color-text-light);
+        }
+
+        .logo span {
+            color: var(--color-primary);
+        }
+
+        .nav-links a {
+            color: var(--color-text-med);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            margin-left: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /*
+        ===================================================================
+        SECTION 3: SECTION STYLES
+        ===================================================================
+        */
+        section {
+            padding: 6rem 0;
+            border-top: 1px solid var(--color-surface);
+        }
+
+        #hero {
+            text-align: center;
+            padding-top: 10rem; /* Space for fixed header */
+            padding-bottom: 8rem;
+            border-top: none;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* HERO */
+        .hero-tagline {
+            font-size: 1.125rem;
+            color: var(--color-text-med);
+            margin-bottom: 1rem;
+            font-family: 'Menlo', monospace;
+        }
+
+        .hero-headline {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: var(--color-text-med);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(6, 182, 212, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #22d3ee;
+            transform: scale(1.05);
+        }
+        
+        /* SKILLS */
+        #skills .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .skill-block {
+            background-color: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--color-secondary);
+        }
+
+        .skill-block h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-light);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background-color: var(--color-pill-bg);
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+        }
+
+        /* PROJECTS */
+        #projects .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(6, 182, 212, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-type {
+            font-size: 0.875rem;
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .project-description {
+            color: var(--color-text-med);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        .project-link:hover {
+            color: #8183f8;
+        }
+
+        /* CONTACT */
+        #contact .content {
+            background-color: var(--color-surface);
+            padding: 3rem;
+            border-radius: 0.75rem;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 1.125rem;
+            color: var(--color-text-med);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-email {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            word-break: break-all;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background-color: var(--color-secondary);
+            color: var(--color-text-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
+        }
+
+        .contact-button:hover {
+            background-color: #8183f8;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--color-surface);
+            font-size: 0.875rem;
+            color: var(--color-text-med);
+        }
+
+        /*
+        ===================================================================
+        SECTION 4: MEDIA QUERIES (Responsiveness)
+        ===================================================================
+        */
+        @media (max-width: 992px) {
+            #skills .grid, #projects .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .nav-links {
+                display: none; /* Hide traditional desktop nav on smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            #skills .grid, #projects .grid {
+                grid-template-columns: 1fr;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+            #contact .content {
+                padding: 2rem 1rem;
+            }
+            .contact-email {
+                font-size: 1.5rem;
+            }}
